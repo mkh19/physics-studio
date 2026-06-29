@@ -5,11 +5,12 @@ import { EventBus } from "../events";
 import { EngineEvents } from "./EngineEvents";
 import { EngineOptions } from "./EngineOptions";
 import { EngineState } from "./EngineState";
-
+import { Renderer } from "../../renderer";
 /**
  * Physics Studio Engine.
  */
 export class Engine {
+    private renderer?: Renderer;
 
     /**
      * Event system.
@@ -196,7 +197,15 @@ export class Engine {
             deltaTime
         );
 
-        this.scenes.render();
+        if (
+            this.renderer
+        ) {
+        
+            this.scenes.render(
+                this.renderer
+            );
+        
+        }
 
         this.events.emit(
             "render",
@@ -229,6 +238,15 @@ export class Engine {
             EngineState.Running
         );
     
+    }
+
+
+    public setRenderer(
+        renderer: Renderer
+    ): void {
+
+        this.renderer = renderer;
+
     }
 
 }

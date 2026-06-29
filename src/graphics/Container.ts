@@ -1,7 +1,7 @@
 import { DisplayObject } from "./DisplayObject";
 import { CanvasRenderer } from "../renderer";
 
-
+import { Rectangle } from "../math";
 export class Container
     extends DisplayObject {
 
@@ -97,5 +97,95 @@ export class Container
 
         return this.children;
 
+    }
+
+    public override getBounds(): Rectangle {
+
+        if (this.children.length === 0) {
+
+            return new Rectangle();
+
+        }
+
+        let bounds =
+            this.children[0].getBounds();
+
+        let minX = bounds.x;
+        let minY = bounds.y;
+
+        let maxX = bounds.x + bounds.width;
+        let maxY = bounds.y + bounds.height;
+
+        for (
+
+            let i = 1;
+
+            i < this.children.length;
+
+            i++
+
+        ) {
+
+            bounds =
+                this.children[i].getBounds();
+
+            minX = Math.min(
+                minX,
+                bounds.x
+            );
+
+            minY = Math.min(
+                minY,
+                bounds.y
+            );
+
+            maxX = Math.max(
+                maxX,
+                bounds.x + bounds.width
+            );
+
+            maxY = Math.max(
+                maxY,
+                bounds.y + bounds.height
+            );
+
+        }
+
+        return new Rectangle(
+
+            minX,
+
+            minY,
+
+            maxX - minX,
+
+            maxY - minY
+
+        );
+
+    }
+
+
+
+    public getDescendants(): readonly DisplayObject[] {
+
+        const result: DisplayObject[] = [];
+        
+        for (const child of this.children) {
+        
+            result.push(child);
+        
+            if (child instanceof Container) {
+            
+                result.push(
+                    ...child.getDescendants()
+                );
+            
+            }
+        
+        }
+    
+        return result;
+    
     }
 }

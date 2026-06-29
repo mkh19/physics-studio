@@ -22,46 +22,57 @@ export class SelectTool extends Tool {
     ): void {
 
         const objects =
-            this.scene.getChildren();
+            this.scene.getDescendants();
 
         for (
 
-            let i =
-                objects.length - 1;
+    let i = objects.length - 1;
 
-            i >= 0;
+    i >= 0;
 
-            i--
+    i--
 
-        ) {
+) {
 
-            const object =
-                objects[i];
+    const object =
+        objects[i];
 
-            if (
+    if (
+        !object.isSelectable
+    ) {
 
-                object
-                    .getBounds()
-                    .contains(
+        continue;
 
-                        mouse.x,
+    }
 
-                        mouse.y
+    if (
 
-                    )
+        object
+            .getBounds()
+            .contains(
 
-            ) {
+                mouse.x,
 
-                this.selection.select(
-                    object
-                );
+                mouse.y
 
-                return;
+            )
 
-            }
+    ) {
 
-        }
+        console.log(
+            "Selected:",
+            object.constructor.name
+        );
 
+        this.selection.select(
+            object
+        );
+
+        return;
+
+    }
+
+}
         this.selection.clear();
 
     }
