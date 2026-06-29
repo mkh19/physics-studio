@@ -1,0 +1,43 @@
+export const ThemeVariables = {
+
+    colors: {
+
+        background: "#ffffff",
+
+        grid: "#e5e7eb",
+
+        axis: "#9ca3af",
+
+        text: "#111827",
+
+        body: "#607d8b",
+
+        force: "#1976d2",
+
+        normal: "#2e7d32",
+
+        weight: "#d32f2f",
+
+        friction: "#ef6c00",
+
+        dimension: "#616161",
+
+        angle: "#7b1fa2"
+
+    },
+
+    sizes: {
+
+        lineWidth: 2,
+
+        gridSpacing: 40,
+
+        arrowHead: 12,
+
+        bodyRadius: 22,
+
+        fontSize: 20
+
+    }
+
+} as const;
