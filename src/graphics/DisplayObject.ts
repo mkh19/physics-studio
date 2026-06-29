@@ -1,26 +1,37 @@
 import { CanvasRenderer } from "../renderer";
+import { Transform } from "../core";
 
 export abstract class DisplayObject {
 
     protected x = 0;
+    
 
     protected y = 0;
     protected rotation = 0;
 
     protected visible = true;
 
+    
+    
+    
+    
+    
+
     public setPosition(
+
         x: number,
+
         y: number
+
     ): this {
 
         this.x = x;
+
         this.y = y;
 
         return this;
 
     }
-
     public show(): this {
 
         this.visible = true;
@@ -78,6 +89,8 @@ export abstract class DisplayObject {
         ctx.restore();
     
     }
+
+    
 
     public abstract draw(
         renderer: CanvasRenderer

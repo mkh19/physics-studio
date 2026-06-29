@@ -15,3 +15,4 @@ export * from "./config";
 export * from "./time";
 
 export * from "./lifecycle";
+export * from "./input";

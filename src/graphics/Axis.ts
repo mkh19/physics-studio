@@ -1,6 +1,7 @@
 import { Graphic } from "./Graphic";
 import { CanvasRenderer } from "../renderer";
-import { ThemeVariables } from "../themes/variables";
+
+
 
 export class Axis extends Graphic {
 
@@ -18,7 +19,7 @@ export class Axis extends Graphic {
         ctx.save();
 
         ctx.strokeStyle =
-            ThemeVariables.colors.axis;
+            "#9ca3af";
 
         ctx.lineWidth = 2;
 

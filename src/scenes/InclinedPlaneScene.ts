@@ -19,7 +19,27 @@ export class InclinedPlaneScene
             
             super("Inclined Plane");
             
-           this.physics.inclinedPlane();
+           this.physics.inclinedPlane({
+
+    x: 120,
+
+    y: 500,
+
+    length: 350,
+
+    angle: 30,
+
+    mass: "5 kg",
+
+    dimension: "5 m",
+
+    normal: true,
+
+    weight: true,
+
+    appliedForce: true
+
+});
     }
 
     public update(
