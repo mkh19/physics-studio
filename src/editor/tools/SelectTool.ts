@@ -20,9 +20,10 @@ export class SelectTool extends Tool {
     public override onMouseDown(
         mouse: Mouse
     ): void {
-
+        console.log("Mouse Down");
         const objects =
             this.scene.getDescendants();
+            console.log(objects.length);
 
         for (
 
@@ -36,6 +37,7 @@ export class SelectTool extends Tool {
 
     const object =
         objects[i];
+        console.log(object.constructor.name);
 
     if (
         !object.isSelectable
@@ -60,9 +62,9 @@ export class SelectTool extends Tool {
     ) {
 
         console.log(
-            "Selected:",
-            object.constructor.name
-        );
+    object.constructor.name,
+    object.isSelectable
+);
 
         this.selection.select(
             object

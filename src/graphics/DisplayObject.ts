@@ -8,7 +8,7 @@ import { Rectangle } from "../math";
 export abstract class DisplayObject {
 
     protected x = 0;
-    
+    protected selectable = true;
 
     protected y = 0;
     protected rotation = 0;
@@ -147,6 +147,11 @@ export abstract class DisplayObject {
 
         return this.x;
 
+    }
+    public get isSelectable(): boolean {
+
+        return this.selectable;
+        
     }
 
     public get positionY(): number {

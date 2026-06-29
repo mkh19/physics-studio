@@ -43,26 +43,25 @@ export class Circle extends Graphic {
 
         ctx.save();
 
-        ctx.strokeStyle = "#2563eb";
+        ctx.strokeStyle = "#1d4ed8";
 
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2;
 
         ctx.beginPath();
 
         ctx.arc(
 
-            this.x,
+    0,
 
-            this.y,
+    0,
 
-            this.radius + 4,
+    this.radius + 4,
 
-            0,
+    0,
 
-            Math.PI * 2
+    Math.PI * 2
 
-        );
-
+);
         ctx.stroke();
 
         ctx.restore();
@@ -77,45 +76,45 @@ export class Circle extends Graphic {
     public override containsPoint(
 
             x: number,
-        
+
             y: number
-        
+
         ): boolean {
-        
+
             const dx =
                 x - this.x;
-        
+
             const dy =
                 y - this.y;
-        
+
             return (
-            
+
                 dx * dx +
-            
+
                 dy * dy
-            
+
             ) <=
-        
+
             this.radius *
-        
+
             this.radius;
-        
+
         }
-    
-    
+
+
         public override getBounds(): Rectangle {
-        
+
         return new Rectangle(
-        
+
             this.positionX - this.radius,
-        
+
             this.positionY - this.radius,
-        
+
             this.radius * 2,
-        
+
             this.radius * 2
-        
+
         );
-    
+
     }
 }
