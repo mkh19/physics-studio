@@ -1,6 +1,6 @@
 import { Graphic } from "./Graphic";
 import { CanvasRenderer } from "../renderer";
-
+import { Rectangle } from "../math";
 export class Grid extends Graphic {
 
     public width = 2000;
@@ -71,6 +71,22 @@ export class Grid extends Graphic {
 
         ctx.restore();
 
+    }
+
+    public override getBounds(): Rectangle {
+
+        return new Rectangle(
+        
+            this.positionX,
+        
+            this.positionY,
+        
+            this.width,
+        
+            this.height
+        
+        );
+    
     }
 
 }

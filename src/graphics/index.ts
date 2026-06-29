@@ -10,3 +10,4 @@ export * from "./Label";
 export * from "./Arc";
 export * from "./Grid";
 export * from "./Axis";
+export * from "./DisplayObjectState";

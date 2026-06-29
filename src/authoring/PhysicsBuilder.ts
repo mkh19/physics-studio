@@ -91,7 +91,7 @@ export class PhysicsBuilder {
     this.scene.add(
         body
     );
-
+    
     const length =
         new Dimension();
 
@@ -116,5 +116,6 @@ export class PhysicsBuilder {
     return this;
 
 }
+
 
 }

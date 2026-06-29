@@ -1,6 +1,7 @@
 import { DisplayObject } from "./DisplayObject";
 import { CanvasRenderer } from "../renderer";
 
+
 export class Container
     extends DisplayObject {
 
@@ -47,5 +48,54 @@ export class Container
         }
 
     }
+    
 
+    public override containsPoint(
+
+        x: number,
+
+        y: number
+
+    ): boolean {
+
+        for (
+
+            let i =
+
+            this.children.length - 1;
+
+            i >= 0;
+
+            i--
+
+        ) {
+
+            if (
+
+                this.children[i]
+                    .containsPoint(
+
+                        x,
+
+                        y
+
+                    )
+
+            ) {
+
+                return true;
+
+            }
+
+        }
+
+        return false;
+
+    }
+
+    public getChildren(): readonly DisplayObject[] {
+
+        return this.children;
+
+    }
 }

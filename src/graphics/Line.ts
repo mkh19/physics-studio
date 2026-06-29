@@ -1,6 +1,6 @@
 import { Graphic } from "./Graphic";
 import { CanvasRenderer } from "../renderer";
-
+import { Rectangle } from "../math";
 export class Line extends Graphic {
 
     public x2 = 100;
@@ -59,4 +59,39 @@ export class Line extends Graphic {
     
     }
 
+    public override getBounds(): Rectangle {
+
+        const minX = Math.min(
+            this.positionX,
+            this.x2
+        );
+    
+        const minY = Math.min(
+            this.positionY,
+            this.y2
+        );
+    
+        const maxX = Math.max(
+            this.positionX,
+            this.x2
+        );
+    
+        const maxY = Math.max(
+            this.positionY,
+            this.y2
+        );
+    
+        return new Rectangle(
+        
+            minX,
+        
+            minY,
+        
+            maxX - minX,
+        
+            maxY - minY
+        
+        );
+    
+    }
 }

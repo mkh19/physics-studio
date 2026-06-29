@@ -1,5 +1,6 @@
 import { Graphic } from "./Graphic";
 import { CanvasRenderer } from "../renderer";
+import { Rectangle } from "../math";
 
 export class Arc extends Graphic {
 
@@ -43,6 +44,22 @@ export class Arc extends Graphic {
 
         ctx.stroke();
 
+    }
+
+    public override getBounds(): Rectangle {
+
+        return new Rectangle(
+        
+            this.positionX - this.radius,
+        
+            this.positionY - this.radius,
+        
+            this.radius * 2,
+        
+            this.radius * 2
+        
+        );
+    
     }
 
 }

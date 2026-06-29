@@ -11,6 +11,10 @@ export class CanvasRenderer extends Renderer {
     private readonly mouse =
     new Mouse();
 
+
+    
+
+
     public constructor(
         width = 1280,
         height = 720
@@ -21,6 +25,8 @@ export class CanvasRenderer extends Renderer {
 
         canvas.width = width;
         canvas.height = height;
+
+        
 
         canvas.addEventListener(
 
@@ -97,12 +103,15 @@ export class CanvasRenderer extends Renderer {
 
     }
 
+    
 
     public getMouse(): Mouse {
 
     return this.mouse;
 
 }
+
+
 
     public getCamera(): Camera2D {
 
@@ -156,6 +165,7 @@ export class CanvasRenderer extends Renderer {
 
     }
 
+    
     public render(
         scene: Scene
     ): void {
@@ -165,5 +175,9 @@ export class CanvasRenderer extends Renderer {
         scene.draw(this);
     
     }
+
+
+    
+
 
 }

@@ -1,5 +1,6 @@
 import { Graphic } from "./Graphic";
 import { CanvasRenderer } from "../renderer";
+import { Rectangle } from "../math";
 
 export class Arrow extends Graphic {
 
@@ -71,6 +72,42 @@ export class Arrow extends Graphic {
 
         ctx.fill();
 
+    }
+
+    public override getBounds(): Rectangle {
+
+        const minX = Math.min(
+            this.positionX,
+            this.x2
+        );
+    
+        const minY = Math.min(
+            this.positionY,
+            this.y2
+        );
+    
+        const maxX = Math.max(
+            this.positionX,
+            this.x2
+        );
+    
+        const maxY = Math.max(
+            this.positionY,
+            this.y2
+        );
+    
+        return new Rectangle(
+        
+            minX,
+        
+            minY,
+        
+            maxX - minX,
+        
+            maxY - minY
+        
+        );
+    
     }
 
 }

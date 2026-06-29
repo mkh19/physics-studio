@@ -1,6 +1,6 @@
 import { Graphic } from "./Graphic";
 import { CanvasRenderer } from "../renderer";
-
+import { Rectangle } from "../math";
 export class Label extends Graphic {
 
     public text = "";
@@ -33,6 +33,27 @@ export class Label extends Graphic {
 
         );
 
+    }
+
+    public override getBounds(): Rectangle {
+
+        const width =
+            this.text.length * 10;
+        
+        const height = 20;
+        
+        return new Rectangle(
+        
+            this.positionX,
+        
+            this.positionY - height,
+        
+            width,
+        
+            height
+        
+        );
+    
     }
 
 }

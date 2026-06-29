@@ -15,4 +15,12 @@ document.body.appendChild(
 const scene =
     new InclinedPlaneScene();
 
-renderer.render(scene);
+function loop(): void {
+
+    renderer.render(scene);
+
+    requestAnimationFrame(loop);
+
+}
+
+loop();

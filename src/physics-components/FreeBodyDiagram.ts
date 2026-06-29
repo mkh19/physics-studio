@@ -157,4 +157,17 @@ export class FreeBodyDiagram extends Container {
         
     }
 
+
+    public setSelected(
+    value: boolean
+): this {
+
+    this.mass.setSelected(
+        value
+    );
+
+    return this;
+
+}
+
 }

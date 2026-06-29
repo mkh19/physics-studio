@@ -1,6 +1,6 @@
 import { Graphic } from "./Graphic";
 import { CanvasRenderer } from "../renderer";
-
+import { Rectangle } from "../math";
 export class Circle extends Graphic {
 
     public radius = 30;
@@ -38,10 +38,84 @@ export class Circle extends Graphic {
             this.color;
 
         ctx.fill();
+
+        if (this.selected) {
+
+        ctx.save();
+
+        ctx.strokeStyle = "#2563eb";
+
+        ctx.lineWidth = 3;
+
+        ctx.beginPath();
+
+        ctx.arc(
+
+            this.x,
+
+            this.y,
+
+            this.radius + 4,
+
+            0,
+
+            Math.PI * 2
+
+        );
+
+        ctx.stroke();
+
+        ctx.restore();
+
+    }
         this.endDraw(
     ctx
 );
 
     }
 
+    public override containsPoint(
+
+            x: number,
+        
+            y: number
+        
+        ): boolean {
+        
+            const dx =
+                x - this.x;
+        
+            const dy =
+                y - this.y;
+        
+            return (
+            
+                dx * dx +
+            
+                dy * dy
+            
+            ) <=
+        
+            this.radius *
+        
+            this.radius;
+        
+        }
+    
+    
+        public override getBounds(): Rectangle {
+        
+        return new Rectangle(
+        
+            this.positionX - this.radius,
+        
+            this.positionY - this.radius,
+        
+            this.radius * 2,
+        
+            this.radius * 2
+        
+        );
+    
+    }
 }

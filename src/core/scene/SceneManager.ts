@@ -1,4 +1,5 @@
 import { Scene } from "./Scene";
+import { Renderer } from "../../renderer";
 
 /**
  * Manages scene lifecycle.
@@ -48,16 +49,19 @@ export class SceneManager {
 
     }
 
-    /**
-     * Renders active scene.
-     */
-    public render(): void {
-
+   public render(
+        renderer: Renderer
+    ): void {
+    
         if (!this.activeScene) {
+        
             return;
+        
         }
     
-        this.activeScene.render();
+        renderer.render(
+            this.activeScene
+        );
     
     }
 
